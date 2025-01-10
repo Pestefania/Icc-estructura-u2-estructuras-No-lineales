@@ -1,25 +1,16 @@
 package main.Materia.Models;
 
 public class Node {
+    private int value;
+    private Node left;
+    private Node right;
 
-    private int value; 
-    private Node left; 
-    private Node right; 
-
-    // Constructor
     public Node(int value) {
         this.value = value;
-        this.left = null;
-        this.right = null;
     }
 
-    // Métodos getters y setters
     public int getValue() {
         return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
     }
 
     public Node getLeft() {
