@@ -1,30 +1,27 @@
 package main.Materia.Models;
 
 public class Node {
-    private int value;
-    private int height;
-    private Node left;
-    private Node right;
 
+    private int value; 
+    private Node left; 
+    private Node right; 
+    private int height;
+
+    // Constructor
     public Node(int value) {
         this.value = value;
-        this.height = 1; // Altura inicial de un nodo
+        //this.left = null;
+        //this.right = null;
+        this.height = 1; // Inicializamos la altura como 1 para un nodo hoja
     }
 
+    // Métodos getters y setters
     public int getValue() {
         return value;
     }
 
     public void setValue(int value) {
         this.value = value;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public Node getLeft() {
@@ -41,5 +38,14 @@ public class Node {
 
     public void setRight(Node right) {
         this.right = right;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    // Método para establecer la altura
+    public void setHeight(int height) {
+        this.height = height; 
     }
 }

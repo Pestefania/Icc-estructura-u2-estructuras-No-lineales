@@ -6,27 +6,25 @@ import main.Materia.Controllers.ArbolRecorridos;
 import main.Materia.Models.Node;
 
 public class App {
-    public static void main(String[] args) {
-        // Llamar a los métodos que deseas ejecutar
-        runArbolAVL();
-        runArbolBinario();
+    public static void main(String[] args) throws Exception {
+        //runArbolBinario();
         runArbolRecorridos();
         runEjercicio3();
+
+        runArbolAVL();
     }
 
     private static void runArbolAVL() {
-        ArbolAVL arbol = new ArbolAVL();
+        ArbolAVL arbolAvl = new ArbolAVL();
+        int[] values = {10, 20, 15, 24, 9, 8, 21, 23, 50, 25};
 
-        // Insertar valores en el árbol AVL
-        int[] valores = {10, 20, 30, 40, 50, 25};
-        for (int valor : valores) {
-            arbol.insert(valor);
+        // Insertar cada valor al árbol
+        for (int valor : values) {
+            arbolAvl.insert(valor);
         }
 
-        // Imprimir el árbol AVL
-        System.out.println("Arbol AVL:");
-        arbol.printTree();
-        System.out.println();
+        // Imprimir el árbol binario
+        arbolAvl.printTree();
     }
 
     private static void runEjercicio3() {
@@ -82,47 +80,46 @@ public class App {
         }
     }
 
-    private static void runArbolBinario() {
+    public static void runArbolBinario() {
         ArbolBinario arbolBinario = new ArbolBinario();
         int[] valores = {40, 20, 60, 10, 30, 50, 70, 5, 15, 55};
 
-        // Insertar cada valor al árbol binario
+        // Insertar cada valor al árbol
         for (int valor : valores) {
             arbolBinario.insert(valor);
         }
 
         // Imprimir el árbol binario
-        System.out.println("Recorrido en orden del árbol binario:");
         arbolBinario.printTree();
-        System.out.println();
     }
 
-    private static void runArbolRecorridos() {
+    public static void runArbolRecorridos() {
         ArbolBinario arbolBinario = new ArbolBinario(); // Usar ArbolBinario para insertar valores
         int[] valores = {40, 20, 60, 10, 30, 50, 70, 5, 15, 55};
-
+    
         // Insertar valores al árbol binario
         for (int valor : valores) {
             arbolBinario.insert(valor);
         }
-
+    
         // Crear instancia de ArbolRecorridos
         ArbolRecorridos arbolRecorridos = new ArbolRecorridos();
-
+    
         // Realizar recorridos en el árbol
         System.out.println("Recorrido en preOrden (iterativo):");
         arbolRecorridos.preOrderIterativo(arbolBinario.getRoot());
 
+        // Recorrido en preorden recursivo
         System.out.println("Recorrido en preOrden (recursivo):");
         arbolRecorridos.preOrderRecursivo(arbolBinario.getRoot());
-        System.out.println();
+        System.out.println(); 
 
         System.out.println("Recorrido en posOrder:");
         arbolRecorridos.posOrderRecursivo(arbolBinario.getRoot());
         System.out.println();
-
+        
         System.out.println("Recorrido en inOrden:");
         arbolRecorridos.inOrderRecursivo(arbolBinario.getRoot());
-        System.out.println();
-    }
+        System.out.println(); 
+    }  
 }
