@@ -1,12 +1,15 @@
+import java.util.List;
+
 import Ejercicio_01_insert.InsertBSTTest;
 import Ejercicio_02_invert.InvertBinaryTree;
-import Ejercicio_04_depth.Depth;
-import java.util.List;
 import main.Ejercicio_03_listLevels.ListLevels;
+import Ejercicio_04_depth.Depth;
 import main.Materia.Controllers.ArbolAVL;
 import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolRecorridos;
 import main.Materia.Models.Node;
+import main.Materia.Models.NodeG;
+import main.Materia.Controllers.Graph;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -14,12 +17,39 @@ public class App {
         //runArbolRecorridos();
         //runArbolAVL();
 
-        runInsertBSTTest();
-        runInvertBinaryTree();
+        //runInsertBSTTest();
+        //runInvertBinaryTree();
         //runEjercicio3();
-        runDepth();
+        //runDepth();
+
+
+        runGraph();
 
     }
+
+    private static void runGraph() {
+        Graph grafo = new Graph();
+
+        // Crear los nodos
+        NodeG nodo5 = grafo.addNode(5);
+        NodeG nodo7 = grafo.addNode(7);
+        NodeG nodo9 = grafo.addNode(9);
+        NodeG nodo11 = grafo.addNode(11);
+        NodeG nodo3 = grafo.addNode(3);
+
+        // Conectar los nodos
+        grafo.addEdge(nodo5, nodo7);
+        grafo.addEdge(nodo5, nodo9);
+        grafo.addEdge(nodo5, nodo3);
+        grafo.addEdge(nodo7, nodo9);
+        grafo.addEdge(nodo9, nodo3);
+        grafo.addEdge(nodo11, nodo3);
+
+        // Imprimir el grafo en el formato deseado
+        grafo.printGraph();
+    }
+    
+
 
     private static void runInsertBSTTest() {
         InsertBSTTest bst = new InsertBSTTest();
@@ -54,13 +84,13 @@ public class App {
             root = bst.insert(root, value);
         }
 
-        System.out.println("Input (Arbol original):");
+        System.out.println("Input (Árbol original):");
         bst.printTreeAligned(root);
 
         // Invertimos el árbol
         root = invertBinaryTree.invertTree(root);
 
-        System.out.println("\nOutput (Arbol invertido):");
+        System.out.println("\nOutput (Árbol invertido):");
         bst.printTreeAligned(root);
     }
 
